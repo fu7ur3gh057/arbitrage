@@ -33,7 +33,7 @@ class Settings(BaseSettings):
     # quantity of workers for uvicorn
     workers_count: int = 1
     # Enable uvicorn reloading
-    reload: bool = False
+    reload: bool = True
 
     # Current environment
     environment: str = "dev"
@@ -41,11 +41,11 @@ class Settings(BaseSettings):
     log_level: LogLevel = LogLevel.INFO
 
     # Variables for the database
-    db_host: str = "localhost"
+    db_host: str = "db"
     db_port: int = 5432
-    db_user: str = "arbitrage"
-    db_pass: str = "arbitrage"
-    db_base: str = "arbitrage"
+    db_user: str = "postgres"
+    db_pass: str = "1234"
+    db_base: str = "arb_test"
     db_echo: bool = False
 
     # Variables for Redis

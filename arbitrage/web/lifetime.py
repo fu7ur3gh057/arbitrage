@@ -2,7 +2,6 @@ from typing import Awaitable, Callable
 
 from fastapi import FastAPI
 
-from arbitrage.services.kafka.lifetime import init_kafka, shutdown_kafka
 from arbitrage.services.redis.lifetime import init_redis, shutdown_redis
 
 
@@ -22,7 +21,7 @@ def register_startup_event(
     @app.on_event("startup")
     async def _startup() -> None:  # noqa: WPS430
         init_redis(app)
-        await init_kafka(app)
+        # await init_kafka(app)
         pass  # noqa: WPS420
 
     return _startup
@@ -41,7 +40,7 @@ def register_shutdown_event(
     @app.on_event("shutdown")
     async def _shutdown() -> None:  # noqa: WPS430
         await shutdown_redis(app)
-        await shutdown_kafka(app)
+        # await shutdown_kafka(app)
         pass  # noqa: WPS420
 
     return _shutdown

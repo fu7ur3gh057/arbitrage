@@ -2,7 +2,13 @@ from typing import List
 
 from arbitrage.settings import settings
 
-MODELS_MODULES: List[str] = []  # noqa: WPS407
+ROOT_PATH = "arbitrage.db.models"
+
+MODELS_MODULES: List[str] = [
+    f"{ROOT_PATH}.users",
+    f"{ROOT_PATH}.deals",
+    f"{ROOT_PATH}.chat",
+]  # noqa: WPS407
 
 TORTOISE_CONFIG = {  # noqa: WPS407
     "connections": {
